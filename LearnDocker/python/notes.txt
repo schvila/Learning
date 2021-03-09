@@ -1,0 +1,5 @@
+--input je ok
+ docker run -it pythonrand
+
+***not working?
+docker start  -a -i  keen_wiles

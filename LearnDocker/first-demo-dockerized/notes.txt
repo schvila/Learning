@@ -1,0 +1,8 @@
+docker run -p 3000:3000 3b4923cdf539
+http://localhost:3000/
+
+; what is running:
+docker ps
+; generovane names objective_leakey
+; stop by name  in new terminal wnd
+docker stop objective_leakey

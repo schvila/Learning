@@ -1,0 +1,58 @@
+
+*Managing Data & Working with Volumes
+!!! cd docker-volumes
+docker build -t feedback-node .
+docker run -p 3000:80 -d --name feedback-app --rm  feedback-node
+docker stop feedback-app
+!! pozor v tomto projektu mi chybely slozky temp a feedback, nedostaly se do image/cotainer a aplikace tam proto nemohla vytvaret soubory
+pokud provedem --rm remove, file inside container is lost. Bez --rm zustane, pak muzeme provest start a soubor tam zustane.
+-proto tam jsou volumes(folders on my host machine mounted mapped into container), neprijdeme a data
+VOLUME["app/feedback"]
++oprava aplikce server.js:
+      await fs.copyFile(tempFilePath, finalFilePath);
+      await fs.unlink(tempFilePath);
+      // nefunguje s volumes:
+      //await fs.rename(tempFilePath, finalFilePath);
+docker build -t feedback-node:volumes .
+docker run -p 3000:80 -d --name feedback-app --rm  feedback-node:volumes
+co se deje logs: docker logs feedback-app
+docker stop feedback-app
+docker rmi feedback-node:volumes
+
+!! soubor se nedostal do host feedback neni ve VSCode, proto Named Volumes
+musime misto default "Anonymous" Volumes(neprezijou), pouzit "Named".
+
+vyhodit 
+VOLUME ["/app/feedback"]
+z docker file
+pouzijeme: -v feedback:/app/feedback
+docker build -t feedback-node:volumes .
+docker run -d  -p 3000:80 --rm  --name feedback-app -v feedback:/app/feedback  feedback-node:volumes
+narozdil od anonymous volume nebude po shutdown vynmazano, 
+see: docker volume ls
+docker run -d  -p 3000:80 --rm  --name feedback-app -v feedback:/app/feedback  feedback-node:volumes
+vytvori novy container, ale volume soubor tam je
+http://localhost:3000/feedback/pokus.txt
+
+Bind Mounts (Code Sharing)
+docker run -d  -p 3000:80 --rm  --name feedback-app -v feedback:/app/feedback -v C:\_dev\DockerTests\data-volumes:/app -v /app/node_modules feedback-node:volumes
+** -v /app/node_modules
+!!node_modules vytvoreny npm install prezije
+Nyni je to ok po zmene html a refresh se zmena projevi
+!nefunguje pro bezici server.js v node, musime pouzit extension, ktere ho po zmene restartuje
+do package.json pridat nodemon:
+  "scripts": {
+    "start": "nodemon server.js"
+  }
+  "devDependencies": {
+    "nodemon": "2.0.7"
+  }
++ dockerfile
+CMD [ "npm", "start" ]
+
+docker logs feedback-app
+
+Nefunguje na win 10 s wsl2 musime pouzit linux, nebo (OK):
+{
+   "scripts": "nodemon -L server.js"
+}
