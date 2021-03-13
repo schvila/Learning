@@ -1,0 +1,20 @@
+*dockerize MongoDB Service
+We'll use official mongodb image from hub.docker.com
+docker run --name mongodb --rm -d mongo
+*dockerize node.js backend
+docker build -t goals-node .
+run container based on the image
+docker run --name goals-backend --rm goals-node
+
+
+/*************************** on network ********************/
+docker network create goals-net
+docker run --name mongodb --rm -d --network goals-net mongo
+
+docker run --name goals-backend --rm -d --network goals-net goals-node
+docker stop goals-backend
+
+
+/** persist mongodb data
+docker run --name mongodb -v data:/data/db --rm -d --network goals-net -e MONGO_INITDB_ROOT_USERNAME=max -e MONGO_INITDB_ROOT_PASSWORD=secret mongo
+
