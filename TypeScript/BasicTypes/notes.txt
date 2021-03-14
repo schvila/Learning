@@ -1,4 +1,10 @@
 *start with 
 tsc app.ts 
 * po zmene musime kompilovat + IE refresh
+** lite-server, sleduje zmeny
 npm init
+npm install --save-dev lite-server
+* pak je v package.json + doplnit start.
+
+
+
