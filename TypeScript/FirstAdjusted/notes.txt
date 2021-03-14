@@ -1,0 +1,4 @@
+basic compile
+tsc using-ts.ts
+produces
+using-ts.js

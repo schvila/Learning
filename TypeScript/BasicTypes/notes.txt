@@ -1,0 +1,4 @@
+*start with 
+tsc app.ts 
+* po zmene musime kompilovat + IE refresh
+npm init
