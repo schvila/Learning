@@ -1,12 +1,9 @@
-// branch test
 const http = require('http');
 
-// function rqListener(req, res){
+const routes = require('./routes');
 
-// }
+console.log(routes.someText);
 
-// http.createServer(rqListener);
-const server = http.createServer((req, res)=>{
-    console.log(req);
-});
+const server = http.createServer(routes.handler);
+
 server.listen(3000);
