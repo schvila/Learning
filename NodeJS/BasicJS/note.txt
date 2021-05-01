@@ -1,0 +1,2 @@
+js skripty startujeme pomoci nodejs
+node .\arraym.js
