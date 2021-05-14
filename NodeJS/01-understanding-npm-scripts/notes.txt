@@ -1,0 +1,3 @@
+    "start-server": "node app.js"
+pro skripty mimo special "start" se pouziva npm run start-server
+"start" je special staci npm starts

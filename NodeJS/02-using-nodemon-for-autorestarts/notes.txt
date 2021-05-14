@@ -1,0 +1,2 @@
+nodemon monitoruje zmeny v kodu nemusime restartovat, staci pro development
+npm install nodemon --save-dev //jen pro tento projekt devDependencies, pak uz jen npm install
