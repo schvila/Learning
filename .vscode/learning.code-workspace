@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../LearnDocker"
+		},
+		{
+			"path": "../NodeJS"
+		},
+		{
+			"path": "../TypeScript"
+		}
+	],
+	"settings": {}
+}
