@@ -12,7 +12,7 @@
                 "<node_internals>/**"
             ],
             "restart": true,
-            "program": "${workspaceFolder}/02-using-nodemon-for-autorestarts/app.js",
+            "program": "${workspaceFolder}/app.js",
             "runtimeExecutable": "nodemon"
         }
     ]

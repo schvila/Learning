@@ -8,6 +8,12 @@
 		},
 		{
 			"path": "../TypeScript"
+		},
+		{
+			"path": "../node-express-start"
+		},
+		{
+			"path": "../node-express-parse"
 		}
 	],
 	"settings": {}
