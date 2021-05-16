@@ -14,6 +14,9 @@
 		},
 		{
 			"path": "../node-express-parse"
+		},
+		{
+			"path": "../node-express-html"
 		}
 	],
 	"settings": {}
