@@ -17,7 +17,12 @@
 		},
 		{
 			"path": "../node-express-html"
+		},
+		{
+			"path": "../html-tags"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "html-tags"
+	}
 }
