@@ -20,6 +20,9 @@
 		},
 		{
 			"path": "../html-tags"
+		},
+		{
+			"path": "../TypeScript/BasicTypes"
 		}
 	],
 	"settings": {
