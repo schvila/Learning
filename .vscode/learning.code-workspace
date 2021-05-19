@@ -29,6 +29,9 @@
 		},
 		{
 			"path": "../node-express-ejs"
+		},
+		{
+			"path": "../node-express-mvc"
 		}
 	],
 	"settings": {
