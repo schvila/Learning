@@ -26,6 +26,9 @@
 		},
 		{
 			"path": "../node-express-dynamic"
+		},
+		{
+			"path": "../node-express-ejs"
 		}
 	],
 	"settings": {
