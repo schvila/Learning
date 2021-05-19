@@ -23,6 +23,9 @@
 		},
 		{
 			"path": "../TypeScript/BasicTypes"
+		},
+		{
+			"path": "../node-express-dynamic"
 		}
 	],
 	"settings": {
