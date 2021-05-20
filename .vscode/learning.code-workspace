@@ -32,6 +32,9 @@
 		},
 		{
 			"path": "../node-express-mvc"
+		},
+		{
+			"path": "../node-express-mvc-adv"
 		}
 	],
 	"settings": {
