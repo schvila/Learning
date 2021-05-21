@@ -38,6 +38,9 @@
 		},
 		{
 			"path": "../node-express-mvc-enh"
+		},
+		{
+			"path": "../node-advroutes"
 		}
 	],
 	"settings": {
