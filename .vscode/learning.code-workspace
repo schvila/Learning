@@ -41,6 +41,9 @@
 		},
 		{
 			"path": "../node-advroutes"
+		},
+		{
+			"path": "../node-express-mysql"
 		}
 	],
 	"settings": {
