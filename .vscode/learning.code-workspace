@@ -44,6 +44,9 @@
 		},
 		{
 			"path": "../node-express-mysql"
+		},
+		{
+			"path": "../node-express-sequelize"
 		}
 	],
 	"settings": {
