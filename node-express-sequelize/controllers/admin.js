@@ -66,7 +66,7 @@ exports.postEditProduct = (req, res, next) => {
       product.price = updatedPrice;
       product.description = updatedDesc;
       product.imageUrl = updatedImageUrl;
-      return product.save();
+      return product.save(); // vraci promis pro then result 
     })
     .then(result => {
       console.log('UPDATED PRODUCT!');

@@ -50,6 +50,9 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "html-tags_css"
+		"liveServer.settings.multiRootWorkspaceName": "html-tags_css",
+		"search.exclude": {
+			"**/node_modules": false
+		}
 	}
 }
