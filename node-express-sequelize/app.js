@@ -22,7 +22,8 @@ const shopRoutes = require('./routes/shop');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-// midle ware, 
+
+// middle ware, just registration of route used after sequelize creates user and starts server listening on port 3000. user stored in request is sequelize object with all methods and props.
 app.use((req, res, next) => {
   User.findByPk(1)
     .then(user => {
@@ -58,7 +59,8 @@ sequelize
     if (!user) {
       return User.create({ name: 'Max', email: 'test@test.com' });
     }
-    //rturns promise, not explcit promise needed
+    //return Promise.resolve(user);
+    //returns promise, not explcit Promise.resolve needed, because it's in 'then' block.
     return user;
   })
   .then(user => {
