@@ -13,6 +13,7 @@ exports.postAddProduct = (req, res, next) => {
   const imageUrl = req.body.imageUrl;
   const price = req.body.price;
   const description = req.body.description;
+  // user.createProduct - magic added by sequelize thanks to association Product.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
   req.user
     .createProduct({
       title: title,
