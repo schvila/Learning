@@ -22,7 +22,7 @@ const shopRoutes = require('./routes/shop');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-
+// midle ware, 
 app.use((req, res, next) => {
   User.findByPk(1)
     .then(user => {
@@ -58,6 +58,7 @@ sequelize
     if (!user) {
       return User.create({ name: 'Max', email: 'test@test.com' });
     }
+    //rturns promise, not explcit promise needed
     return user;
   })
   .then(user => {
