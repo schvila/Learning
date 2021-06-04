@@ -47,6 +47,9 @@
 		},
 		{
 			"path": "../node-express-sequelize"
+		},
+		{
+			"path": "../node-express-mongodb"
 		}
 	],
 	"settings": {
