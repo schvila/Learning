@@ -17,6 +17,18 @@ class User {
   }
 
   addToCart(product) {
+    if(this.cart === undefined)
+    {
+      const updCart = {items: [ {  productId: new ObjectId(product._id),  quantity: 1 }]};
+      const db = getDb();
+      return db
+        .collection('users')
+        .updateOne(
+          { _id: new ObjectId(this._id) },
+          { $set: { cart: updCart} }
+        );
+  
+    }
     const cartProductIndex = this.cart.items.findIndex(cp => {
       return cp.productId.toString() === product._id.toString();
     });
@@ -46,6 +58,8 @@ class User {
 
   getCart() {
     const db = getDb();
+    if(this.cart === undefined)
+      return [];
     const productIds = this.cart.items.map(i => {
       return i.productId;
     });
