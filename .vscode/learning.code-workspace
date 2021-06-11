@@ -50,6 +50,9 @@
 		},
 		{
 			"path": "../node-express-mongodb"
+		},
+		{
+			"path": "../node-mongoose"
 		}
 	],
 	"settings": {
