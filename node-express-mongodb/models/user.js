@@ -19,7 +19,7 @@ class User {
   addToCart(product) {
     if(this.cart === undefined)
     {
-      const updCart = {items: [ {  productId: new ObjectId(product._id),  quantity: 1 }]};
+      const updCart = {items: [ {  ...product,  quantity: 1 }]};
       const db = getDb();
       return db
         .collection('users')
