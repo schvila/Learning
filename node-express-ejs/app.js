@@ -1,9 +1,16 @@
 const path = require('path');
 
 const express = require('express');
-const bodyParser = require('body-parser');
-
 const app = express();
+
+// Express v4.16.0 and higher
+// --------------------------
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: false
+}));
+
+
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -11,7 +18,6 @@ app.set('views', 'views');
 const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/admin', adminData.routes);
