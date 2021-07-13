@@ -56,6 +56,7 @@ exports.postEditProduct = (req, res, next) => {
 
 exports.getProducts = (req, res, next) => {
   Product.fetchAll(products => {
+    //res.json(products)
     res.render('admin/products', {
       prods: products,
       pageTitle: 'Admin Products',
