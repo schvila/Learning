@@ -40,11 +40,17 @@ app.use(errorController.get404);
 
 mongoose
   .connect(
-    'mongodb+srv://maximilian:9u4biljMQc4jjqbe@cluster0-ntrwp.mongodb.net/shop?retryWrites=true'
+    'mongodb+srv://standa:rnEZ3rjw3lf9J7Bh@cluster0.5tfx5.mongodb.net/shop?retryWrites=true',
+    { 
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
   )
   .then(result => {
+    console.log('Finding user Max');
     User.findOne().then(user => {
       if (!user) {
+        console.log('User not found.');
         const user = new User({
           name: 'Max',
           email: 'max@test.com',
@@ -55,6 +61,7 @@ mongoose
         user.save();
       }
     });
+    console.log('Listen on port 3000');
     app.listen(3000);
   })
   .catch(err => {
